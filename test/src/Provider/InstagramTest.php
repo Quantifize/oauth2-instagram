@@ -108,9 +108,14 @@ class InstagramTest extends \PHPUnit_Framework_TestCase
         $user = $this->provider->getResourceOwner($token);
 
         $this->assertEquals($userId, $user->getId());
+        $this->assertEquals($userId, $user->toArray()['id']);
         $this->assertEquals($name, $user->getName());
+        $this->assertEquals($name, $user->toArray()['name']);
         $this->assertEquals($nickname, $user->getNickname());
+        $this->assertEquals($nickname, $user->toArray()['nickname']);
         $this->assertEquals($picture, $user->getImageurl());
+        $this->assertEquals($picture, $user->toArray()['imageurl']);
         $this->assertEquals($description, $user->getDescription());
+        $this->assertEquals($description, $user->toArray()['description']);
     }
 }
